@@ -1,5 +1,16 @@
 #smartnima - Nima Fanniasl
+
 import math
+from time import sleep
+
+def yrange(max, min = None):
+    if min != None:
+        num = min
+    else:
+        num = 0
+    while (num<max):
+        yield num
+        num += 1
 
 def is_prime(num):
     if num == 1:
@@ -7,8 +18,7 @@ def is_prime(num):
     Is_prime = True
 
     
-    numlist = list(range(2,int(math.sqrt(num))+1))
-    for i in numlist:
+    for i in yrange(int(math.sqrt(num))+1,2):
         if num % i != 0:
             Is_prime = True
         elif num % i == 0:
@@ -17,27 +27,30 @@ def is_prime(num):
 def rangenum():
     start = int(input("enter start number: "))
     end = int(input("enter end number: ")) + 1
-    numbers = list(range(start,end))
-    prime = list()
-    not_prime = list()
-    for i in numbers:
+    #prime = list()
+    #not_prime = list()
+    print("prime:")
+    for i in yrange(end,start):
         if is_prime(i):
-            prime.append(i)
-        else:
-            not_prime.append(i)
-    print("prime:",end=" ")
-    for i in list(range(len(prime))):
-        if i == len(prime) - 1:
-            print(prime[i],end="")
-        else:
-            print(prime[i],end=" , ")
-    print()
-    print("not prime:",end=" ")
-    for i in list(range(len(not_prime))):
-        if i == len(not_prime) - 1:
-            print(not_prime[i],end="")
-        else:
-            print(not_prime[i],end=" , ")
+            sleep(0.5)
+            print(i,end=" , ")
+    print("Not prime:",end=" ")
+    for i in yrange(end,start):
+        if not is_prime(i):
+            sleep(0.5)
+            print(i)
+    #for i in list(range(len(prime))):
+    #    if i == len(prime) - 1:
+    #        print(prime[i],end="")
+    #    else:
+    #        print(prime[i],end=" , ")
+    #print()
+    #print("not prime:",end=" ")
+    #for i in list(range(len(not_prime))):
+    #    if i == len(not_prime) - 1:
+    #        print(not_prime[i],end="")
+    #    else:
+    #        print(not_prime[i],end=" , ")
 def one_number():
     num = int(input("enter number: "))
     if is_prime(num):
