@@ -2,7 +2,7 @@
 
 import math
 from time import sleep
-from yrange import yrange  #https://github.com/nimafanniasl/py_yrange
+from yrange.yrange import yrange  #https://github.com/nimafanniasl/py_yrange (pip install yrange)
 
 def is_prime(num):
     if num == 1:
